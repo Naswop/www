@@ -1,0 +1,290 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+    /*touch-action: none;*/
+}
+*:after, *:before{
+    box-sizing: border-box;
+}
+body{
+    font-family: "微软雅黑";
+    font-size: 14px;
+    color: #333;
+    min-width: 320px;
+    max-width: 640px;
+    margin: auto;
+    padding: 10px;
+}
+.multi-row{
+    height: auto!important;
+}
+
+body, .mui-content {
+    background-color: #f2f2f2;
+}
+input, select, textarea, .mui-input-row select{
+   font-size: 14px;
+}
+a, a:focus{
+    font-size: inherit;
+    color: inherit;
+}
+ul{
+   list-style: none;
+   padding-left: 0;
+}
+img{
+   display: block;
+   vertical-align: sub;
+   width: 100%;
+}
+.mui-select:before{
+	right: 10px;
+}
+.mui-btn{
+	border-radius: 10px;
+}
+.mui-btn-block{
+	font-size: 16px;
+	padding: 10px 0;
+}
+.mui-btn-yellow{
+	background-color: #e9a944;
+	border-color: #e9a944;
+}
+.clearfix:before, .clearfix:after {content: "";display: table;line-height: 0;}
+.clearfix:after {clear: both;}
+
+.personal{
+	/*overflow: hidden;*/
+	background-color: #fff;
+	/*padding: 5px;*/
+	border-radius: 10px;
+}
+.personal .peo{
+	width: 52%;
+	/*height: 40px;*/
+	/*border-radius: 50%;*/
+	float: left;
+	overflow: hidden;
+    position: relative;
+}
+.personal .peo .mobile{
+    background: transparent url(../images/icon-mobile.png) no-repeat left 15px center;
+    background-size: 16px auto;
+    padding: 11px 15px 9px 38px;
+    /*height: auto;*/
+    /*margin-top: 3px;*/
+    margin-bottom: 0;
+    border:0px;
+     /*border:1px solid #333;*/
+ 
+
+}
+.personal .card{
+    float: left;
+    width: 48%;
+}
+/*.personal .peo.mobile > input{
+    background: 
+}*/
+.personal .name, .personal .tel{
+	margin-top: 9px;
+	margin-left: 15px;
+	float: left;
+}
+.personal .name{
+	font-size: 14px;
+}
+.personal .tel{
+    	font-size: 14px;
+	margin-left: 25px;
+	margin-top: 9px;
+}
+.info .line{
+	margin-top: 10px;
+}
+.info .line .box{
+	background-color: #fff;
+	border-radius: 10px;
+	float: left;
+	width: calc(100% - 35px);
+}
+.info .line .con{
+	width: 35px;
+	float: right;
+	text-align: right;
+	color: #ff0000;
+	padding-top: 7px;
+}
+.info .line .icon{
+	width: 24px;
+	height: 24px;
+	background-size: 20px;
+	display: inline-block;
+}
+.icon-plus{
+	background: url(../images/icon-plus.png) no-repeat center;
+}
+.icon-minus{
+	background: url(../images/icon-minus.png) no-repeat center;
+}
+.info .line .store, .info .line .money{
+	float: left;
+}
+.info .line .store{
+	width: 55%;
+	padding-left: 35px;
+	background: url(../images/icon-store.png) no-repeat left 15px center;
+	background-size: 16px auto;
+}
+.info .line .money{
+	width: 45%;
+	border-left: 1px solid #f4f4f4;
+}
+.info .line .mui-input-row input{
+	border: none;
+	background-color: transparent;
+	padding: 11px 10px 9px;
+	margin-bottom: 0;
+}
+.info ~ .mui-btn-block{
+	margin-top: 20px;
+}
+.activity{
+	border-radius: 10px;
+	margin-top: 9px;
+	overflow: hidden;
+}
+.activity > li{
+	padding: 11px 10px 8px 35px;
+	margin-top: 1px;
+	background: #fff url(../images/icon-gift.png) no-repeat left 15px center;
+	color: #999;
+	background-size: 16px;
+}
+.result{
+	padding: 0 15px 15px;
+	background-color: #fff;
+	border-radius: 10px;
+	margin-top: 20px;
+}
+.result .caption{
+	background: url(../images/icon-calculator.png) no-repeat left center;
+	background-size: 16px;
+	font-size: 16px;
+	padding: 15px 0 13px 20px;
+}
+.result .list{
+	/*background-color: #f6f6f6;
+	color: #999;
+	border-radius: 10px;
+	padding: 0 10px;*/
+    	border-radius: 10px;
+	margin-top: 9px;
+	overflow: hidden;
+}
+.result .list li{
+	/*padding: 11px 0 8px;
+	border-top: 1px solid #e7e7e7;
+    background: #fff url(../images/icon-gift.png) no-repeat left 15px center;*/
+    	padding: 11px 10px 8px 27px;
+	margin-top: 1px;
+	background: #fff url(../images/icon-gift.png) no-repeat left 5px top 13px;
+	color: #999;
+	background-size: 16px;
+}
+.result .list li:first-child{
+	border-top: none;
+}
+
+.select{
+    position: relative;
+}
+.select.mui-select:before{
+	right: 5px;
+	top: 10px;
+}
+.select .dropdown-toggle{
+    width: 100%;
+    font-size: 14px;
+    padding: 11px 15px 8px 3px;
+    color: #333;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    cursor: default;
+    display: block;
+    text-decoration: none;
+}
+.select .dropdown-menu {
+    display: none;
+    position: absolute;
+    border-radius: 3px;
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.2);
+    border: 1px solid #e6e6e6 \0;
+    list-style: none;
+    padding-left: 0;
+    background-color: #fff;
+    z-index: 100;
+    width: 100%;
+}
+.select .dropdown-menu-inner{
+	max-height: 180px;
+	overflow: auto;
+    overflow-x: hidden;
+}
+.select .dropdown-menu-inner > li {
+    line-height: 30px;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    cursor: default;
+}
+.select .dropdown-menu-inner > li:hover, .select .dropdown-menu-inner > li:focus{
+    background-color: #e9a944!important;
+    color: #fff!important;
+}
+.select .dropdown-menu-inner > li.active{
+    color: #e9a944;
+}
+.select .dropdown-menu-inner > li.active.placeholder{
+    color: inherit;
+}
+.select-option-search{
+	position: relative;
+	border-top: 1px solid #dcdcdc;
+}
+.select-option-search > input{
+	padding: 10px;
+	border: none;
+	box-shadow: none;
+	margin-bottom: 0;
+}
+.select-option-search .input-query{
+    position: absolute;
+    right: 4px;
+    top: 0;
+    color: #ccc;
+    font-size: 16px;
+    cursor: default;
+    width: 16px;
+    height: 100%;
+    background: url(../images/icon-select-search.svg) no-repeat center;
+}
+
+.nothing {
+    background: #fff url(../images/frown.png) no-repeat  left 10px center;
+    background-size: 18px auto;
+    background-color:#f8eeee;
+    padding-left: 35px;
+    height: auto;
+    /*margin-left: 10px;*/
+    margin-bottom: 0;
+    border: 1px solid #f5d2d2;
+    height:30px;line-height:30px;
+}

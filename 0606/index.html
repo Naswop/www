@@ -1,0 +1,1429 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>淄博万象汇-积分计算工具</title>
+    <script type="text/javascript" src="./layui/jquery-1.7.2.min.js.js"></script>
+    <script type="text/javascript" src="./layui/bootstrap-select.js"></script>
+    <link rel=" stylesheet" type="text/css" href="./layui/bootstrap-select.css">
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    <script src="./layui/0527.js"></script>
+    <!-- <link type="text/css" href="${ctx}/static/comp/jquery-ui-bootstrap/css/bootstrap-editable.css" rel="stylesheet">
+    <script src="${ctx}/static/comp/jquery-ui-bootstrap/js/bootstrap-editable.js" type="text/javascript"></script> -->
+
+
+    <!-- <link rel="stylesheet" href="./layui/css/app.css">
+    <link rel="stylesheet" href="./layui/css/mui.min.css"> -->
+    <!-- 2.3.2
+    <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+    <script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.js"></script>
+    -->
+    <style>
+        body {
+            background-color: #e7e7e7;
+        }
+
+        .selectpicker {
+            width: 50%;
+
+        }
+
+        .main {
+            margin: 5% 0% 0% 5%;
+            border: 2px solid #ffffff;
+            background: #ffffff;
+            padding: 2% 3%;
+            width: 90%;
+            border-radius: 25px;
+            -moz-border-radius: 25px;
+            /* 老的 Firefox */
+        }
+
+        .main2 {
+            margin: 5% 0% 0% 5%;
+            /* border: 2px solid #ffffff; */
+            color: rgb(133, 133, 133);
+            padding: 2% 3%;
+            width: 90%;
+            border-radius: 25px;
+            -moz-border-radius: 25px;
+            /* 老的 Firefox */
+        }
+
+
+        .btn {
+            padding: 6px 10.5px;
+        }
+
+        .image0 {
+            margin: 5% 0% 0% 5%;
+            text-align: center;
+            padding: 5% 5%;
+            width: 90%;
+
+            /* 老的 Firefox */
+        }
+
+        .details0 {
+            margin: 0px 0px 10px 0px;
+
+        }
+    </style>
+    <script>
+        // 初始化轮播
+        $(document).ready(function () {
+            $("#myCarousel").carousel('cycle');
+        });
+    </script>
+
+</head>
+
+<body>
+
+    <div class="modal fade" id="myModal9" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <img src="./images/00.jpg" alt="" srcset="">
+                </div>
+                <div id="saleinfo9" class="modal-body"></div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+    </div>
+
+
+
+
+
+    <div class="main">
+        <div id="myCarousel" class="carousel slide">
+            <!-- 轮播（Carousel）指标 -->
+            <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" data-interval="20" data-wrap="true" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1" data-interval="20" data-wrap="true"></li>
+                <li data-target="#myCarousel" data-slide-to="2" data-interval="20" data-wrap="true"></li>
+            </ol>
+            <!-- 轮播（Carousel）项目 -->
+            <div class="carousel-inner" style="border-radius: 25px;">
+                <div class="item active">
+                    <img src="./images/text1.jpg" alt="First slide">
+                    <div class="carousel-caption"></div>
+                </div>
+                <div class="item" style="border-radius: 25px;">
+                    <img src="./images/text2.jpg" alt="Second slide">
+                    <div class="carousel-caption"></div>
+                </div>
+                <div class="item" style="border-radius: 25px;">
+                    <img src="./images/text3.jpg" alt="Third slide">
+                    <div class="carousel-caption"></div>
+                </div>
+            </div>
+
+        </div>
+        <br>
+        <form id="form123" class="form-inline" role="form">
+
+            <div>
+                <select id="huiyuan" class="selectpicker" data-width='100%'>
+                    <option value="0">请选择会员卡级</option>
+                    <option value="1">积分卡</option>
+                    <option value="1">银卡</option>
+                    <option value="1.2">金卡</option>
+                    <option value="1.5">白金卡</option>
+                    <option value="1.5">黑卡</option>
+                    
+                </select>
+            </div>
+            <input class="form-control" type="text" name="jifen" id="jifen" placeholder="请输入现有积分">
+            <br>
+            <div id="details0" style="margin: 0px 0px 10px 0px;">
+                <!-- <div class="box"> -->
+
+                <select id="select0" class="selectpicker" data-live-search="true" data-width='100%'">
+                    <option value="0">请选择消费店铺</option>
+                    <option value="1">PEACEBIRD WOMEN</option>
+                    <option value="2">Allike</option>
+                    <option value="3">FILA KIDS</option>
+                    <option value="4">马博士婴幼儿游泳</option>
+                    <option value="5">M.latin</option>
+                    <option value="6">3 CONCEPT EYES</option>
+                    <option value="7">优贝施</option>
+                    <option value="8">NIKE KIDS</option>
+                    <option value="9">B.DUCK</option>
+                    <option value="10">LILY NAILS</option>
+                    <option value="11">BOY JUNIOR</option>
+                    <option value="12">Kormodel</option>
+                    <option value="13">小罐茶</option>
+                    <option value="14">Hair Code</option>
+                    <option value="15">护童</option>
+                    <option value="16">匠杺社</option>
+                    <option value="17">博观表行</option>
+                    <option value="18">CASIO</option>
+                    <option value="19">阿吉豆</option>
+                    <option value="20">名创优品</option>
+                    <option value="21">TISSOT</option>
+                    <option value="22">AOJO</option>
+                    <option value="23">MAXRIENY</option>
+                    <option value="24">西西弗书店</option>
+                    <option value="25">Darry Ring</option>
+                    <option value="26">I Do</option>
+                    <option value="27">PANDORA</option>
+                    <option value="28">TUTUANNA</option>
+                    <option value="29">Fellala</option>
+                    <option value="30">ROCK&RIDE</option>
+                    <option value="31">Happy Socks</option>
+                    <option value="32">莱绅通灵</option>
+                    <option value="33">乐町</option>
+                    <option value="34">周大福 </option>
+                    <option value="35">潮宏基</option>
+                    <option value="36">周大生</option>
+                    <option value="37">万仟堂</option>
+                    <option value="38">木九十</option>
+                    <option value="39">阪织屋</option>
+                    <option value="40">HITOMI OPTICIAN</option>
+                    <option value="41">SWAROVSKI</option>
+                    <option value="42">Daniel Wellington</option>
+                    <option value="43">LONGINES</option>
+                    <option value="44">ID</option>
+                    <option value="45">Zippo</option>
+                    <option value="46">I-ZONE</option>
+                    <option value="47">charles&keith</option>
+                    <option value="48">MUJI</option>
+                    <option value="49">ECCO</option>
+                    <option value="50">UGG</option>
+                    <option value="51">沃尔得英语</option>
+                    <option value="52">龙尚教育</option>
+                    <option value="53">小米之家</option>
+                    <option value="54">乐行体感车</option>
+                    <option value="55">Donoratico</option>
+                    <option value="56">华为</option>
+                    <option value="57">全棉时代</option>
+                    <option value="58">海马体照相馆</option>
+                    <option value="59">dyson</option>
+                    <option value="60">Bose音响</option>
+                    <option value="61">利星行奔驰美容精护中心</option>
+                    <option value="62">BeLLE</option>
+                    <option value="63">携程旅游</option>
+                    <option value="64">ALIENWARE</option>
+                    <option value="65">iGeVR</option>
+                    <option value="66">ochirly</option>
+                    <option value="67">超市</option>
+                    <option value="68">苏宁易购</option>
+                    <option value="69">沃美影城</option>
+                    <option value="70">孩子王</option>
+                    <option value="71">中健亞力山大健身会馆</option>
+                    <option value="72">Meland</option>
+                    <option value="73">星际传奇</option>
+                    <option value="74">阿祖蛋糕</option>
+                    <option value="75">皇城根</option>
+                    <option value="76">煌品</option>
+                    <option value="77">D-HARRY</option>
+                    <option value="78">非尝锅氣</option>
+                    <option value="79">老牌坊</option>
+                    <option value="80">船歌鱼水饺</option>
+                    <option value="81">茉小莉</option>
+                    <option value="82">胖哥俩</option>
+                    <option value="83">北疆饭店</option>
+                    <option value="84">海底捞</option>
+                    <option value="85">佰烧</option>
+                    <option value="86">蛙小侠</option>
+                    <option value="87">吕氏疙瘩汤</option>
+                    <option value="88">FionaChen</option>
+                    <option value="89">茅庐</option>
+                    <option value="90">吉野家</option>
+                    <option value="91">味千拉面</option>
+                    <option value="92">食通天</option>
+                    <option value="93">汉堡王</option>
+                    <option value="94">六乃喜</option>
+                    <option value="95">阿香米线</option>
+                    <option value="96">東號羊汤</option>
+                    <option value="97">龙门花甲</option>
+                    <option value="98">麦当劳</option>
+                    <option value="99">Z11</option>
+                    <option value="100">秦东家</option>
+                    <option value="101">多禾馅饼</option>
+                    <option value="102">老北京炸酱面</option>
+                    <option value="103">过桥缘</option>
+                    <option value="104">弄堂小笼包</option>
+                    <option value="105">满记甜品</option>
+                    <option value="106">黑龙茶</option>
+                    <option value="107">皇家美孚</option>
+                    <option value="108">冰雪皇后</option>
+                    <option value="109">哈根达斯</option>
+                    <option value="110">MO&Co</option>
+                    <option value="111">MM</option>
+                    <option value="112">太平洋咖啡</option>
+                    <option value="113">糖果大师</option>
+                    <option value="114">快乐柠檬PLUS</option>
+                    <option value="115">西西弗矢量咖啡</option>
+                    <option value="116">星巴克</option>
+                    <option value="117">雪花姐姐</option>
+                    <option value="118">鹿谷制茶</option>
+                    <option value="119">乐姿优选</option>
+                    <option value="120">柠檬语茶</option>
+                    <option value="121">鹿角巷</option>
+                    <option value="122">DAZZLE</option>
+                    <option value="123">coco都可</option>
+                    <option value="124">本宫的茶</option>
+                    <option value="125">三只松鼠</option>
+                    <option value="126">我家牛排</option>
+                    <option value="127">鱼酷</option>
+                    <option value="128">大渔铁板烧</option>
+                    <option value="129">牛叁金</option>
+                    <option value="130">汉拿山</option>
+                    <option value="131">呷哺呷哺</option>
+                    <option value="132">汤姆家牛排</option>
+                    <option value="133">莲灿</option>
+                    <option value="134">松果西餐厅</option>
+                    <option value="135">熊猫大师</option>
+                    <option value="136">HAZZYS</option>
+                    <option value="137">EDHARDY</option>
+                    <option value="138">诗篇</option>
+                    <option value="139">Ep雅莹</option>
+                    <option value="140">TOMMY HILFIGER</option>
+                    <option value="141">Read Me</option>
+                    <option value="142">佳人苑</option>
+                    <option value="143">Vero Moda</option>
+                    <option value="144">AUM</option>
+                    <option value="145">BESIONIA</option>
+                    <option value="146">Bouthentique</option>
+                    <option value="147">Koradior</option>
+                    <option value="148">BLUE ERDOS</option>
+                    <option value="149">波司登</option>
+                    <option value="150">advocate life</option>
+                    <option value="151">V.GRASS</option>
+                    <option value="152">SUSSI</option>
+                    <option value="153">LAMPO</option>
+                    <option value="154">EIFINI</option>
+                    <option value="155">J.D.V</option>
+                    <option value="156">希色</option>
+                    <option value="157">Edition</option>
+                    <option value="158">EXCEPTION</option>
+                    <option value="159">OVV</option>
+                    <option value="160">Hush Puppies</option>
+                    <option value="161">LIME FLARE</option>
+                    <option value="162">EVISU</option>
+                    <option value="163">LACOSTE</option>
+                    <option value="164">爱慕</option>
+                    <option value="165">蔚来汽车</option>
+                    <option value="166">H'S</option>
+                    <option value="167">SELECTED</option>
+                    <option value="168">JACK JONES</option>
+                    <option value="169">CALVIN KLEIN UNDERWEAR</option>
+                    <option value="170">Calvin Klein Jeans</option>
+                    <option value="171">BOY</option>
+                    <option value="172">曼妮芬</option>
+                    <option value="173">superdry</option>
+                    <option value="174">FAIRWHALE</option>
+                    <option value="175">太平鸟男装</option>
+                    <option value="176">GXG</option>
+                    <option value="177">BASIC HOUSE</option>
+                    <option value="178">DX</option>
+                    <option value="179">J.LINDEBERG</option>
+                    <option value="180">UNIQLO</option>
+                    <option value="181">Onitsuka Tiger</option>
+                    <option value="182">Adidas originals</option>
+                    <option value="183">PALLADIUM</option>
+                    <option value="184">H&M</option>
+                    <option value="185">Bershka</option>
+                    <option value="186">OYSHO</option>
+                    <option value="187">ZARA</option>
+                    <option value="188">拉夏贝尔</option>
+                    <option value="189">NBA</option>
+                    <option value="190">Timberland</option>
+                    <option value="191">THE NORTH FACE</option>
+                    <option value="192">FILA</option>
+                    <option value="193">Under Armour</option>
+                    <option value="194">ASICS</option>
+                    <option value="195">New Balance</option>
+                    <option value="196">kappa</option>
+                    <option value="197">SKECHERS</option>
+                    <option value="198">Le Coq Sportif</option>
+                    <option value="199">ONLY</option>
+                    <option value="200">LI-NING</option>
+                    <option value="201">LACOSTE CLUB</option>
+                    <option value="202">CONVERSE</option>
+                    <option value="203">PUMA</option>
+                    <option value="204">NIKE</option>
+                    <option value="205">ADIDAS</option>
+                    <option value="206">FILA FUSION</option>
+                    <option value="207">ADIDAS NEO</option>
+                    <option value="208">hotwind热风</option>
+                    <option value="209">东阿阿胶</option>
+                    <option value="210">JNBY</option>
+                    <option value="211">LAMOURBEBE</option>
+                    <option value="212">丝芙兰</option>
+                    <option value="213">屈臣氏</option>
+                    <option value="214">巴黎欧莱雅沙龙</option>
+                    <option value="215">minipeace</option>
+                    <option value="216">Balabala</option>
+                    <option value="217">adidas KIDS</option>
+                    <option value="218">玩具反斗城</option>
+                    <option value="219">七田真</option>
+                    <option value="220">纽约国际儿童俱乐部</option>
+                    <option value="221">廖记棒棒鸡</option>
+                    <option value="222">dh_mart</option>
+
+                </select>
+                <div class="input-group">
+                    <input class="form-control" type="text" name="input0" id="input0" placeholder="请输入消费金额">
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-warning" id="add-btn" onclick="add_div()">＋</button>
+                    </span>
+                </div>
+            </div>
+            <div id="details1" style="display:none;">
+                <select id="select1" class="selectpicker" data-live-search="true" data-width='100%'">
+                    <option value=" 0">请选择消费店铺</option>
+                    <option value="1">PEACEBIRD WOMEN</option>
+                    <option value="2">Allike</option>
+                    <option value="3">FILA KIDS</option>
+                    <option value="4">马博士婴幼儿游泳</option>
+                    <option value="5">M.latin</option>
+                    <option value="6">3 CONCEPT EYES</option>
+                    <option value="7">优贝施</option>
+                    <option value="8">NIKE KIDS</option>
+                    <option value="9">B.DUCK</option>
+                    <option value="10">LILY NAILS</option>
+                    <option value="11">BOY JUNIOR</option>
+                    <option value="12">Kormodel</option>
+                    <option value="13">小罐茶</option>
+                    <option value="14">Hair Code</option>
+                    <option value="15">护童</option>
+                    <option value="16">匠杺社</option>
+                    <option value="17">博观表行</option>
+                    <option value="18">CASIO</option>
+                    <option value="19">阿吉豆</option>
+                    <option value="20">名创优品</option>
+                    <option value="21">TISSOT</option>
+                    <option value="22">AOJO</option>
+                    <option value="23">MAXRIENY</option>
+                    <option value="24">西西弗书店</option>
+                    <option value="25">Darry Ring</option>
+                    <option value="26">I Do</option>
+                    <option value="27">PANDORA</option>
+                    <option value="28">TUTUANNA</option>
+                    <option value="29">Fellala</option>
+                    <option value="30">ROCK&RIDE</option>
+                    <option value="31">Happy Socks</option>
+                    <option value="32">莱绅通灵</option>
+                    <option value="33">乐町</option>
+                    <option value="34">周大福 </option>
+                    <option value="35">潮宏基</option>
+                    <option value="36">周大生</option>
+                    <option value="37">万仟堂</option>
+                    <option value="38">木九十</option>
+                    <option value="39">阪织屋</option>
+                    <option value="40">HITOMI OPTICIAN</option>
+                    <option value="41">SWAROVSKI</option>
+                    <option value="42">Daniel Wellington</option>
+                    <option value="43">LONGINES</option>
+                    <option value="44">ID</option>
+                    <option value="45">Zippo</option>
+                    <option value="46">I-ZONE</option>
+                    <option value="47">charles&keith</option>
+                    <option value="48">MUJI</option>
+                    <option value="49">ECCO</option>
+                    <option value="50">UGG</option>
+                    <option value="51">沃尔得英语</option>
+                    <option value="52">龙尚教育</option>
+                    <option value="53">小米之家</option>
+                    <option value="54">乐行体感车</option>
+                    <option value="55">Donoratico</option>
+                    <option value="56">华为</option>
+                    <option value="57">全棉时代</option>
+                    <option value="58">海马体照相馆</option>
+                    <option value="59">dyson</option>
+                    <option value="60">Bose音响</option>
+                    <option value="61">利星行奔驰美容精护中心</option>
+                    <option value="62">BeLLE</option>
+                    <option value="63">携程旅游</option>
+                    <option value="64">ALIENWARE</option>
+                    <option value="65">iGeVR</option>
+                    <option value="66">ochirly</option>
+                    <option value="67">超市</option>
+                    <option value="68">苏宁易购</option>
+                    <option value="69">沃美影城</option>
+                    <option value="70">孩子王</option>
+                    <option value="71">中健亞力山大健身会馆</option>
+                    <option value="72">Meland</option>
+                    <option value="73">星际传奇</option>
+                    <option value="74">阿祖蛋糕</option>
+                    <option value="75">皇城根</option>
+                    <option value="76">煌品</option>
+                    <option value="77">D-HARRY</option>
+                    <option value="78">非尝锅氣</option>
+                    <option value="79">老牌坊</option>
+                    <option value="80">船歌鱼水饺</option>
+                    <option value="81">茉小莉</option>
+                    <option value="82">胖哥俩</option>
+                    <option value="83">北疆饭店</option>
+                    <option value="84">海底捞</option>
+                    <option value="85">佰烧</option>
+                    <option value="86">蛙小侠</option>
+                    <option value="87">吕氏疙瘩汤</option>
+                    <option value="88">FionaChen</option>
+                    <option value="89">茅庐</option>
+                    <option value="90">吉野家</option>
+                    <option value="91">味千拉面</option>
+                    <option value="92">食通天</option>
+                    <option value="93">汉堡王</option>
+                    <option value="94">六乃喜</option>
+                    <option value="95">阿香米线</option>
+                    <option value="96">東號羊汤</option>
+                    <option value="97">龙门花甲</option>
+                    <option value="98">麦当劳</option>
+                    <option value="99">Z11</option>
+                    <option value="100">秦东家</option>
+                    <option value="101">多禾馅饼</option>
+                    <option value="102">老北京炸酱面</option>
+                    <option value="103">过桥缘</option>
+                    <option value="104">弄堂小笼包</option>
+                    <option value="105">满记甜品</option>
+                    <option value="106">黑龙茶</option>
+                    <option value="107">皇家美孚</option>
+                    <option value="108">冰雪皇后</option>
+                    <option value="109">哈根达斯</option>
+                    <option value="110">MO&Co</option>
+                    <option value="111">MM</option>
+                    <option value="112">太平洋咖啡</option>
+                    <option value="113">糖果大师</option>
+                    <option value="114">快乐柠檬PLUS</option>
+                    <option value="115">西西弗矢量咖啡</option>
+                    <option value="116">星巴克</option>
+                    <option value="117">雪花姐姐</option>
+                    <option value="118">鹿谷制茶</option>
+                    <option value="119">乐姿优选</option>
+                    <option value="120">柠檬语茶</option>
+                    <option value="121">鹿角巷</option>
+                    <option value="122">DAZZLE</option>
+                    <option value="123">coco都可</option>
+                    <option value="124">本宫的茶</option>
+                    <option value="125">三只松鼠</option>
+                    <option value="126">我家牛排</option>
+                    <option value="127">鱼酷</option>
+                    <option value="128">大渔铁板烧</option>
+                    <option value="129">牛叁金</option>
+                    <option value="130">汉拿山</option>
+                    <option value="131">呷哺呷哺</option>
+                    <option value="132">汤姆家牛排</option>
+                    <option value="133">莲灿</option>
+                    <option value="134">松果西餐厅</option>
+                    <option value="135">熊猫大师</option>
+                    <option value="136">HAZZYS</option>
+                    <option value="137">EDHARDY</option>
+                    <option value="138">诗篇</option>
+                    <option value="139">Ep雅莹</option>
+                    <option value="140">TOMMY HILFIGER</option>
+                    <option value="141">Read Me</option>
+                    <option value="142">佳人苑</option>
+                    <option value="143">Vero Moda</option>
+                    <option value="144">AUM</option>
+                    <option value="145">BESIONIA</option>
+                    <option value="146">Bouthentique</option>
+                    <option value="147">Koradior</option>
+                    <option value="148">BLUE ERDOS</option>
+                    <option value="149">波司登</option>
+                    <option value="150">advocate life</option>
+                    <option value="151">V.GRASS</option>
+                    <option value="152">SUSSI</option>
+                    <option value="153">LAMPO</option>
+                    <option value="154">EIFINI</option>
+                    <option value="155">J.D.V</option>
+                    <option value="156">希色</option>
+                    <option value="157">Edition</option>
+                    <option value="158">EXCEPTION</option>
+                    <option value="159">OVV</option>
+                    <option value="160">Hush Puppies</option>
+                    <option value="161">LIME FLARE</option>
+                    <option value="162">EVISU</option>
+                    <option value="163">LACOSTE</option>
+                    <option value="164">爱慕</option>
+                    <option value="165">蔚来汽车</option>
+                    <option value="166">H'S</option>
+                    <option value="167">SELECTED</option>
+                    <option value="168">JACK JONES</option>
+                    <option value="169">CALVIN KLEIN UNDERWEAR</option>
+                    <option value="170">Calvin Klein Jeans</option>
+                    <option value="171">BOY</option>
+                    <option value="172">曼妮芬</option>
+                    <option value="173">superdry</option>
+                    <option value="174">FAIRWHALE</option>
+                    <option value="175">太平鸟男装</option>
+                    <option value="176">GXG</option>
+                    <option value="177">BASIC HOUSE</option>
+                    <option value="178">DX</option>
+                    <option value="179">J.LINDEBERG</option>
+                    <option value="180">UNIQLO</option>
+                    <option value="181">Onitsuka Tiger</option>
+                    <option value="182">Adidas originals</option>
+                    <option value="183">PALLADIUM</option>
+                    <option value="184">H&M</option>
+                    <option value="185">Bershka</option>
+                    <option value="186">OYSHO</option>
+                    <option value="187">ZARA</option>
+                    <option value="188">拉夏贝尔</option>
+                    <option value="189">NBA</option>
+                    <option value="190">Timberland</option>
+                    <option value="191">THE NORTH FACE</option>
+                    <option value="192">FILA</option>
+                    <option value="193">Under Armour</option>
+                    <option value="194">ASICS</option>
+                    <option value="195">New Balance</option>
+                    <option value="196">kappa</option>
+                    <option value="197">SKECHERS</option>
+                    <option value="198">Le Coq Sportif</option>
+                    <option value="199">ONLY</option>
+                    <option value="200">LI-NING</option>
+                    <option value="201">LACOSTE CLUB</option>
+                    <option value="202">CONVERSE</option>
+                    <option value="203">PUMA</option>
+                    <option value="204">NIKE</option>
+                    <option value="205">ADIDAS</option>
+                    <option value="206">FILA FUSION</option>
+                    <option value="207">ADIDAS NEO</option>
+                    <option value="208">hotwind热风</option>
+                    <option value="209">东阿阿胶</option>
+                    <option value="210">JNBY</option>
+                    <option value="211">LAMOURBEBE</option>
+                    <option value="212">丝芙兰</option>
+                    <option value="213">屈臣氏</option>
+                    <option value="214">巴黎欧莱雅沙龙</option>
+                    <option value="215">minipeace</option>
+                    <option value="216">Balabala</option>
+                    <option value="217">adidas KIDS</option>
+                    <option value="218">玩具反斗城</option>
+                    <option value="219">七田真</option>
+                    <option value="220">纽约国际儿童俱乐部</option>
+                    <option value="221">廖记棒棒鸡</option>
+                    <option value="222">dh_mart</option>
+
+                </select>
+                <div class="input-group">
+                    <input class="form-control" type="text" name="input1" id="input1" placeholder="请输入消费金额">
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-danger" id="del-btn" onclick="del_div1()">—</button>
+                    </span>
+                </div>
+
+                <!-- <label for="exampleInputEmail1">请选择消费店铺</label> -->
+
+
+            </div>
+            <div id="details2" style="display:none;">
+                <select data-width='100%' id="select2" class="selectpicker" data-live-search="true">
+                    <option value="0">请选择消费店铺</option>
+                    <option value="1">PEACEBIRD WOMEN</option>
+                    <option value="2">Allike</option>
+                    <option value="3">FILA KIDS</option>
+                    <option value="4">马博士婴幼儿游泳</option>
+                    <option value="5">M.latin</option>
+                    <option value="6">3 CONCEPT EYES</option>
+                    <option value="7">优贝施</option>
+                    <option value="8">NIKE KIDS</option>
+                    <option value="9">B.DUCK</option>
+                    <option value="10">LILY NAILS</option>
+                    <option value="11">BOY JUNIOR</option>
+                    <option value="12">Kormodel</option>
+                    <option value="13">小罐茶</option>
+                    <option value="14">Hair Code</option>
+                    <option value="15">护童</option>
+                    <option value="16">匠杺社</option>
+                    <option value="17">博观表行</option>
+                    <option value="18">CASIO</option>
+                    <option value="19">阿吉豆</option>
+                    <option value="20">名创优品</option>
+                    <option value="21">TISSOT</option>
+                    <option value="22">AOJO</option>
+                    <option value="23">MAXRIENY</option>
+                    <option value="24">西西弗书店</option>
+                    <option value="25">Darry Ring</option>
+                    <option value="26">I Do</option>
+                    <option value="27">PANDORA</option>
+                    <option value="28">TUTUANNA</option>
+                    <option value="29">Fellala</option>
+                    <option value="30">ROCK&RIDE</option>
+                    <option value="31">Happy Socks</option>
+                    <option value="32">莱绅通灵</option>
+                    <option value="33">乐町</option>
+                    <option value="34">周大福 </option>
+                    <option value="35">潮宏基</option>
+                    <option value="36">周大生</option>
+                    <option value="37">万仟堂</option>
+                    <option value="38">木九十</option>
+                    <option value="39">阪织屋</option>
+                    <option value="40">HITOMI OPTICIAN</option>
+                    <option value="41">SWAROVSKI</option>
+                    <option value="42">Daniel Wellington</option>
+                    <option value="43">LONGINES</option>
+                    <option value="44">ID</option>
+                    <option value="45">Zippo</option>
+                    <option value="46">I-ZONE</option>
+                    <option value="47">charles&keith</option>
+                    <option value="48">MUJI</option>
+                    <option value="49">ECCO</option>
+                    <option value="50">UGG</option>
+                    <option value="51">沃尔得英语</option>
+                    <option value="52">龙尚教育</option>
+                    <option value="53">小米之家</option>
+                    <option value="54">乐行体感车</option>
+                    <option value="55">Donoratico</option>
+                    <option value="56">华为</option>
+                    <option value="57">全棉时代</option>
+                    <option value="58">海马体照相馆</option>
+                    <option value="59">dyson</option>
+                    <option value="60">Bose音响</option>
+                    <option value="61">利星行奔驰美容精护中心</option>
+                    <option value="62">BeLLE</option>
+                    <option value="63">携程旅游</option>
+                    <option value="64">ALIENWARE</option>
+                    <option value="65">iGeVR</option>
+                    <option value="66">ochirly</option>
+                    <option value="67">超市</option>
+                    <option value="68">苏宁易购</option>
+                    <option value="69">沃美影城</option>
+                    <option value="70">孩子王</option>
+                    <option value="71">中健亞力山大健身会馆</option>
+                    <option value="72">Meland</option>
+                    <option value="73">星际传奇</option>
+                    <option value="74">阿祖蛋糕</option>
+                    <option value="75">皇城根</option>
+                    <option value="76">煌品</option>
+                    <option value="77">D-HARRY</option>
+                    <option value="78">非尝锅氣</option>
+                    <option value="79">老牌坊</option>
+                    <option value="80">船歌鱼水饺</option>
+                    <option value="81">茉小莉</option>
+                    <option value="82">胖哥俩</option>
+                    <option value="83">北疆饭店</option>
+                    <option value="84">海底捞</option>
+                    <option value="85">佰烧</option>
+                    <option value="86">蛙小侠</option>
+                    <option value="87">吕氏疙瘩汤</option>
+                    <option value="88">FionaChen</option>
+                    <option value="89">茅庐</option>
+                    <option value="90">吉野家</option>
+                    <option value="91">味千拉面</option>
+                    <option value="92">食通天</option>
+                    <option value="93">汉堡王</option>
+                    <option value="94">六乃喜</option>
+                    <option value="95">阿香米线</option>
+                    <option value="96">東號羊汤</option>
+                    <option value="97">龙门花甲</option>
+                    <option value="98">麦当劳</option>
+                    <option value="99">Z11</option>
+                    <option value="100">秦东家</option>
+                    <option value="101">多禾馅饼</option>
+                    <option value="102">老北京炸酱面</option>
+                    <option value="103">过桥缘</option>
+                    <option value="104">弄堂小笼包</option>
+                    <option value="105">满记甜品</option>
+                    <option value="106">黑龙茶</option>
+                    <option value="107">皇家美孚</option>
+                    <option value="108">冰雪皇后</option>
+                    <option value="109">哈根达斯</option>
+                    <option value="110">MO&Co</option>
+                    <option value="111">MM</option>
+                    <option value="112">太平洋咖啡</option>
+                    <option value="113">糖果大师</option>
+                    <option value="114">快乐柠檬PLUS</option>
+                    <option value="115">西西弗矢量咖啡</option>
+                    <option value="116">星巴克</option>
+                    <option value="117">雪花姐姐</option>
+                    <option value="118">鹿谷制茶</option>
+                    <option value="119">乐姿优选</option>
+                    <option value="120">柠檬语茶</option>
+                    <option value="121">鹿角巷</option>
+                    <option value="122">DAZZLE</option>
+                    <option value="123">coco都可</option>
+                    <option value="124">本宫的茶</option>
+                    <option value="125">三只松鼠</option>
+                    <option value="126">我家牛排</option>
+                    <option value="127">鱼酷</option>
+                    <option value="128">大渔铁板烧</option>
+                    <option value="129">牛叁金</option>
+                    <option value="130">汉拿山</option>
+                    <option value="131">呷哺呷哺</option>
+                    <option value="132">汤姆家牛排</option>
+                    <option value="133">莲灿</option>
+                    <option value="134">松果西餐厅</option>
+                    <option value="135">熊猫大师</option>
+                    <option value="136">HAZZYS</option>
+                    <option value="137">EDHARDY</option>
+                    <option value="138">诗篇</option>
+                    <option value="139">Ep雅莹</option>
+                    <option value="140">TOMMY HILFIGER</option>
+                    <option value="141">Read Me</option>
+                    <option value="142">佳人苑</option>
+                    <option value="143">Vero Moda</option>
+                    <option value="144">AUM</option>
+                    <option value="145">BESIONIA</option>
+                    <option value="146">Bouthentique</option>
+                    <option value="147">Koradior</option>
+                    <option value="148">BLUE ERDOS</option>
+                    <option value="149">波司登</option>
+                    <option value="150">advocate life</option>
+                    <option value="151">V.GRASS</option>
+                    <option value="152">SUSSI</option>
+                    <option value="153">LAMPO</option>
+                    <option value="154">EIFINI</option>
+                    <option value="155">J.D.V</option>
+                    <option value="156">希色</option>
+                    <option value="157">Edition</option>
+                    <option value="158">EXCEPTION</option>
+                    <option value="159">OVV</option>
+                    <option value="160">Hush Puppies</option>
+                    <option value="161">LIME FLARE</option>
+                    <option value="162">EVISU</option>
+                    <option value="163">LACOSTE</option>
+                    <option value="164">爱慕</option>
+                    <option value="165">蔚来汽车</option>
+                    <option value="166">H'S</option>
+                    <option value="167">SELECTED</option>
+                    <option value="168">JACK JONES</option>
+                    <option value="169">CALVIN KLEIN UNDERWEAR</option>
+                    <option value="170">Calvin Klein Jeans</option>
+                    <option value="171">BOY</option>
+                    <option value="172">曼妮芬</option>
+                    <option value="173">superdry</option>
+                    <option value="174">FAIRWHALE</option>
+                    <option value="175">太平鸟男装</option>
+                    <option value="176">GXG</option>
+                    <option value="177">BASIC HOUSE</option>
+                    <option value="178">DX</option>
+                    <option value="179">J.LINDEBERG</option>
+                    <option value="180">UNIQLO</option>
+                    <option value="181">Onitsuka Tiger</option>
+                    <option value="182">Adidas originals</option>
+                    <option value="183">PALLADIUM</option>
+                    <option value="184">H&M</option>
+                    <option value="185">Bershka</option>
+                    <option value="186">OYSHO</option>
+                    <option value="187">ZARA</option>
+                    <option value="188">拉夏贝尔</option>
+                    <option value="189">NBA</option>
+                    <option value="190">Timberland</option>
+                    <option value="191">THE NORTH FACE</option>
+                    <option value="192">FILA</option>
+                    <option value="193">Under Armour</option>
+                    <option value="194">ASICS</option>
+                    <option value="195">New Balance</option>
+                    <option value="196">kappa</option>
+                    <option value="197">SKECHERS</option>
+                    <option value="198">Le Coq Sportif</option>
+                    <option value="199">ONLY</option>
+                    <option value="200">LI-NING</option>
+                    <option value="201">LACOSTE CLUB</option>
+                    <option value="202">CONVERSE</option>
+                    <option value="203">PUMA</option>
+                    <option value="204">NIKE</option>
+                    <option value="205">ADIDAS</option>
+                    <option value="206">FILA FUSION</option>
+                    <option value="207">ADIDAS NEO</option>
+                    <option value="208">hotwind热风</option>
+                    <option value="209">东阿阿胶</option>
+                    <option value="210">JNBY</option>
+                    <option value="211">LAMOURBEBE</option>
+                    <option value="212">丝芙兰</option>
+                    <option value="213">屈臣氏</option>
+                    <option value="214">巴黎欧莱雅沙龙</option>
+                    <option value="215">minipeace</option>
+                    <option value="216">Balabala</option>
+                    <option value="217">adidas KIDS</option>
+                    <option value="218">玩具反斗城</option>
+                    <option value="219">七田真</option>
+                    <option value="220">纽约国际儿童俱乐部</option>
+                    <option value="221">廖记棒棒鸡</option>
+                    <option value="222">dh_mart</option>
+
+                </select>
+                <div class="input-group">
+                    <input class="form-control" type="text" name="input2" id="input2" placeholder="请输入消费金额">
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-danger" id="del-btn" onclick="del_div2()">—</button>
+                    </span>
+                </div>
+            </div>
+            <div id="details3" style="display:none;">
+                <select data-width='100%' id="select3" class="selectpicker" data-live-search="true">
+                    <option value="0">请选择消费店铺</option>
+                    <option value="1">PEACEBIRD WOMEN</option>
+                    <option value="2">Allike</option>
+                    <option value="3">FILA KIDS</option>
+                    <option value="4">马博士婴幼儿游泳</option>
+                    <option value="5">M.latin</option>
+                    <option value="6">3 CONCEPT EYES</option>
+                    <option value="7">优贝施</option>
+                    <option value="8">NIKE KIDS</option>
+                    <option value="9">B.DUCK</option>
+                    <option value="10">LILY NAILS</option>
+                    <option value="11">BOY JUNIOR</option>
+                    <option value="12">Kormodel</option>
+                    <option value="13">小罐茶</option>
+                    <option value="14">Hair Code</option>
+                    <option value="15">护童</option>
+                    <option value="16">匠杺社</option>
+                    <option value="17">博观表行</option>
+                    <option value="18">CASIO</option>
+                    <option value="19">阿吉豆</option>
+                    <option value="20">名创优品</option>
+                    <option value="21">TISSOT</option>
+                    <option value="22">AOJO</option>
+                    <option value="23">MAXRIENY</option>
+                    <option value="24">西西弗书店</option>
+                    <option value="25">Darry Ring</option>
+                    <option value="26">I Do</option>
+                    <option value="27">PANDORA</option>
+                    <option value="28">TUTUANNA</option>
+                    <option value="29">Fellala</option>
+                    <option value="30">ROCK&RIDE</option>
+                    <option value="31">Happy Socks</option>
+                    <option value="32">莱绅通灵</option>
+                    <option value="33">乐町</option>
+                    <option value="34">周大福 </option>
+                    <option value="35">潮宏基</option>
+                    <option value="36">周大生</option>
+                    <option value="37">万仟堂</option>
+                    <option value="38">木九十</option>
+                    <option value="39">阪织屋</option>
+                    <option value="40">HITOMI OPTICIAN</option>
+                    <option value="41">SWAROVSKI</option>
+                    <option value="42">Daniel Wellington</option>
+                    <option value="43">LONGINES</option>
+                    <option value="44">ID</option>
+                    <option value="45">Zippo</option>
+                    <option value="46">I-ZONE</option>
+                    <option value="47">charles&keith</option>
+                    <option value="48">MUJI</option>
+                    <option value="49">ECCO</option>
+                    <option value="50">UGG</option>
+                    <option value="51">沃尔得英语</option>
+                    <option value="52">龙尚教育</option>
+                    <option value="53">小米之家</option>
+                    <option value="54">乐行体感车</option>
+                    <option value="55">Donoratico</option>
+                    <option value="56">华为</option>
+                    <option value="57">全棉时代</option>
+                    <option value="58">海马体照相馆</option>
+                    <option value="59">dyson</option>
+                    <option value="60">Bose音响</option>
+                    <option value="61">利星行奔驰美容精护中心</option>
+                    <option value="62">BeLLE</option>
+                    <option value="63">携程旅游</option>
+                    <option value="64">ALIENWARE</option>
+                    <option value="65">iGeVR</option>
+                    <option value="66">ochirly</option>
+                    <option value="67">超市</option>
+                    <option value="68">苏宁易购</option>
+                    <option value="69">沃美影城</option>
+                    <option value="70">孩子王</option>
+                    <option value="71">中健亞力山大健身会馆</option>
+                    <option value="72">Meland</option>
+                    <option value="73">星际传奇</option>
+                    <option value="74">阿祖蛋糕</option>
+                    <option value="75">皇城根</option>
+                    <option value="76">煌品</option>
+                    <option value="77">D-HARRY</option>
+                    <option value="78">非尝锅氣</option>
+                    <option value="79">老牌坊</option>
+                    <option value="80">船歌鱼水饺</option>
+                    <option value="81">茉小莉</option>
+                    <option value="82">胖哥俩</option>
+                    <option value="83">北疆饭店</option>
+                    <option value="84">海底捞</option>
+                    <option value="85">佰烧</option>
+                    <option value="86">蛙小侠</option>
+                    <option value="87">吕氏疙瘩汤</option>
+                    <option value="88">FionaChen</option>
+                    <option value="89">茅庐</option>
+                    <option value="90">吉野家</option>
+                    <option value="91">味千拉面</option>
+                    <option value="92">食通天</option>
+                    <option value="93">汉堡王</option>
+                    <option value="94">六乃喜</option>
+                    <option value="95">阿香米线</option>
+                    <option value="96">東號羊汤</option>
+                    <option value="97">龙门花甲</option>
+                    <option value="98">麦当劳</option>
+                    <option value="99">Z11</option>
+                    <option value="100">秦东家</option>
+                    <option value="101">多禾馅饼</option>
+                    <option value="102">老北京炸酱面</option>
+                    <option value="103">过桥缘</option>
+                    <option value="104">弄堂小笼包</option>
+                    <option value="105">满记甜品</option>
+                    <option value="106">黑龙茶</option>
+                    <option value="107">皇家美孚</option>
+                    <option value="108">冰雪皇后</option>
+                    <option value="109">哈根达斯</option>
+                    <option value="110">MO&Co</option>
+                    <option value="111">MM</option>
+                    <option value="112">太平洋咖啡</option>
+                    <option value="113">糖果大师</option>
+                    <option value="114">快乐柠檬PLUS</option>
+                    <option value="115">西西弗矢量咖啡</option>
+                    <option value="116">星巴克</option>
+                    <option value="117">雪花姐姐</option>
+                    <option value="118">鹿谷制茶</option>
+                    <option value="119">乐姿优选</option>
+                    <option value="120">柠檬语茶</option>
+                    <option value="121">鹿角巷</option>
+                    <option value="122">DAZZLE</option>
+                    <option value="123">coco都可</option>
+                    <option value="124">本宫的茶</option>
+                    <option value="125">三只松鼠</option>
+                    <option value="126">我家牛排</option>
+                    <option value="127">鱼酷</option>
+                    <option value="128">大渔铁板烧</option>
+                    <option value="129">牛叁金</option>
+                    <option value="130">汉拿山</option>
+                    <option value="131">呷哺呷哺</option>
+                    <option value="132">汤姆家牛排</option>
+                    <option value="133">莲灿</option>
+                    <option value="134">松果西餐厅</option>
+                    <option value="135">熊猫大师</option>
+                    <option value="136">HAZZYS</option>
+                    <option value="137">EDHARDY</option>
+                    <option value="138">诗篇</option>
+                    <option value="139">Ep雅莹</option>
+                    <option value="140">TOMMY HILFIGER</option>
+                    <option value="141">Read Me</option>
+                    <option value="142">佳人苑</option>
+                    <option value="143">Vero Moda</option>
+                    <option value="144">AUM</option>
+                    <option value="145">BESIONIA</option>
+                    <option value="146">Bouthentique</option>
+                    <option value="147">Koradior</option>
+                    <option value="148">BLUE ERDOS</option>
+                    <option value="149">波司登</option>
+                    <option value="150">advocate life</option>
+                    <option value="151">V.GRASS</option>
+                    <option value="152">SUSSI</option>
+                    <option value="153">LAMPO</option>
+                    <option value="154">EIFINI</option>
+                    <option value="155">J.D.V</option>
+                    <option value="156">希色</option>
+                    <option value="157">Edition</option>
+                    <option value="158">EXCEPTION</option>
+                    <option value="159">OVV</option>
+                    <option value="160">Hush Puppies</option>
+                    <option value="161">LIME FLARE</option>
+                    <option value="162">EVISU</option>
+                    <option value="163">LACOSTE</option>
+                    <option value="164">爱慕</option>
+                    <option value="165">蔚来汽车</option>
+                    <option value="166">H'S</option>
+                    <option value="167">SELECTED</option>
+                    <option value="168">JACK JONES</option>
+                    <option value="169">CALVIN KLEIN UNDERWEAR</option>
+                    <option value="170">Calvin Klein Jeans</option>
+                    <option value="171">BOY</option>
+                    <option value="172">曼妮芬</option>
+                    <option value="173">superdry</option>
+                    <option value="174">FAIRWHALE</option>
+                    <option value="175">太平鸟男装</option>
+                    <option value="176">GXG</option>
+                    <option value="177">BASIC HOUSE</option>
+                    <option value="178">DX</option>
+                    <option value="179">J.LINDEBERG</option>
+                    <option value="180">UNIQLO</option>
+                    <option value="181">Onitsuka Tiger</option>
+                    <option value="182">Adidas originals</option>
+                    <option value="183">PALLADIUM</option>
+                    <option value="184">H&M</option>
+                    <option value="185">Bershka</option>
+                    <option value="186">OYSHO</option>
+                    <option value="187">ZARA</option>
+                    <option value="188">拉夏贝尔</option>
+                    <option value="189">NBA</option>
+                    <option value="190">Timberland</option>
+                    <option value="191">THE NORTH FACE</option>
+                    <option value="192">FILA</option>
+                    <option value="193">Under Armour</option>
+                    <option value="194">ASICS</option>
+                    <option value="195">New Balance</option>
+                    <option value="196">kappa</option>
+                    <option value="197">SKECHERS</option>
+                    <option value="198">Le Coq Sportif</option>
+                    <option value="199">ONLY</option>
+                    <option value="200">LI-NING</option>
+                    <option value="201">LACOSTE CLUB</option>
+                    <option value="202">CONVERSE</option>
+                    <option value="203">PUMA</option>
+                    <option value="204">NIKE</option>
+                    <option value="205">ADIDAS</option>
+                    <option value="206">FILA FUSION</option>
+                    <option value="207">ADIDAS NEO</option>
+                    <option value="208">hotwind热风</option>
+                    <option value="209">东阿阿胶</option>
+                    <option value="210">JNBY</option>
+                    <option value="211">LAMOURBEBE</option>
+                    <option value="212">丝芙兰</option>
+                    <option value="213">屈臣氏</option>
+                    <option value="214">巴黎欧莱雅沙龙</option>
+                    <option value="215">minipeace</option>
+                    <option value="216">Balabala</option>
+                    <option value="217">adidas KIDS</option>
+                    <option value="218">玩具反斗城</option>
+                    <option value="219">七田真</option>
+                    <option value="220">纽约国际儿童俱乐部</option>
+                    <option value="221">廖记棒棒鸡</option>
+                    <option value="222">dh_mart</option>
+
+                </select>
+                <div class="input-group">
+                    <input class="form-control" type="text" name="input13" id="input3" placeholder="请输入消费金额">
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-danger" id="del-btn" onclick="del_div3()">—</button>
+                    </span>
+                </div>
+            </div>
+            <div id="details4" style="display:none;">
+                <select data-width='100%' id="select4" class="selectpicker" data-live-search="true">
+                    <option value="0">请选择消费店铺</option>
+                    <option value="1">PEACEBIRD WOMEN</option>
+                    <option value="2">Allike</option>
+                    <option value="3">FILA KIDS</option>
+                    <option value="4">马博士婴幼儿游泳</option>
+                    <option value="5">M.latin</option>
+                    <option value="6">3 CONCEPT EYES</option>
+                    <option value="7">优贝施</option>
+                    <option value="8">NIKE KIDS</option>
+                    <option value="9">B.DUCK</option>
+                    <option value="10">LILY NAILS</option>
+                    <option value="11">BOY JUNIOR</option>
+                    <option value="12">Kormodel</option>
+                    <option value="13">小罐茶</option>
+                    <option value="14">Hair Code</option>
+                    <option value="15">护童</option>
+                    <option value="16">匠杺社</option>
+                    <option value="17">博观表行</option>
+                    <option value="18">CASIO</option>
+                    <option value="19">阿吉豆</option>
+                    <option value="20">名创优品</option>
+                    <option value="21">TISSOT</option>
+                    <option value="22">AOJO</option>
+                    <option value="23">MAXRIENY</option>
+                    <option value="24">西西弗书店</option>
+                    <option value="25">Darry Ring</option>
+                    <option value="26">I Do</option>
+                    <option value="27">PANDORA</option>
+                    <option value="28">TUTUANNA</option>
+                    <option value="29">Fellala</option>
+                    <option value="30">ROCK&RIDE</option>
+                    <option value="31">Happy Socks</option>
+                    <option value="32">莱绅通灵</option>
+                    <option value="33">乐町</option>
+                    <option value="34">周大福 </option>
+                    <option value="35">潮宏基</option>
+                    <option value="36">周大生</option>
+                    <option value="37">万仟堂</option>
+                    <option value="38">木九十</option>
+                    <option value="39">阪织屋</option>
+                    <option value="40">HITOMI OPTICIAN</option>
+                    <option value="41">SWAROVSKI</option>
+                    <option value="42">Daniel Wellington</option>
+                    <option value="43">LONGINES</option>
+                    <option value="44">ID</option>
+                    <option value="45">Zippo</option>
+                    <option value="46">I-ZONE</option>
+                    <option value="47">charles&keith</option>
+                    <option value="48">MUJI</option>
+                    <option value="49">ECCO</option>
+                    <option value="50">UGG</option>
+                    <option value="51">沃尔得英语</option>
+                    <option value="52">龙尚教育</option>
+                    <option value="53">小米之家</option>
+                    <option value="54">乐行体感车</option>
+                    <option value="55">Donoratico</option>
+                    <option value="56">华为</option>
+                    <option value="57">全棉时代</option>
+                    <option value="58">海马体照相馆</option>
+                    <option value="59">dyson</option>
+                    <option value="60">Bose音响</option>
+                    <option value="61">利星行奔驰美容精护中心</option>
+                    <option value="62">BeLLE</option>
+                    <option value="63">携程旅游</option>
+                    <option value="64">ALIENWARE</option>
+                    <option value="65">iGeVR</option>
+                    <option value="66">ochirly</option>
+                    <option value="67">超市</option>
+                    <option value="68">苏宁易购</option>
+                    <option value="69">沃美影城</option>
+                    <option value="70">孩子王</option>
+                    <option value="71">中健亞力山大健身会馆</option>
+                    <option value="72">Meland</option>
+                    <option value="73">星际传奇</option>
+                    <option value="74">阿祖蛋糕</option>
+                    <option value="75">皇城根</option>
+                    <option value="76">煌品</option>
+                    <option value="77">D-HARRY</option>
+                    <option value="78">非尝锅氣</option>
+                    <option value="79">老牌坊</option>
+                    <option value="80">船歌鱼水饺</option>
+                    <option value="81">茉小莉</option>
+                    <option value="82">胖哥俩</option>
+                    <option value="83">北疆饭店</option>
+                    <option value="84">海底捞</option>
+                    <option value="85">佰烧</option>
+                    <option value="86">蛙小侠</option>
+                    <option value="87">吕氏疙瘩汤</option>
+                    <option value="88">FionaChen</option>
+                    <option value="89">茅庐</option>
+                    <option value="90">吉野家</option>
+                    <option value="91">味千拉面</option>
+                    <option value="92">食通天</option>
+                    <option value="93">汉堡王</option>
+                    <option value="94">六乃喜</option>
+                    <option value="95">阿香米线</option>
+                    <option value="96">東號羊汤</option>
+                    <option value="97">龙门花甲</option>
+                    <option value="98">麦当劳</option>
+                    <option value="99">Z11</option>
+                    <option value="100">秦东家</option>
+                    <option value="101">多禾馅饼</option>
+                    <option value="102">老北京炸酱面</option>
+                    <option value="103">过桥缘</option>
+                    <option value="104">弄堂小笼包</option>
+                    <option value="105">满记甜品</option>
+                    <option value="106">黑龙茶</option>
+                    <option value="107">皇家美孚</option>
+                    <option value="108">冰雪皇后</option>
+                    <option value="109">哈根达斯</option>
+                    <option value="110">MO&Co</option>
+                    <option value="111">MM</option>
+                    <option value="112">太平洋咖啡</option>
+                    <option value="113">糖果大师</option>
+                    <option value="114">快乐柠檬PLUS</option>
+                    <option value="115">西西弗矢量咖啡</option>
+                    <option value="116">星巴克</option>
+                    <option value="117">雪花姐姐</option>
+                    <option value="118">鹿谷制茶</option>
+                    <option value="119">乐姿优选</option>
+                    <option value="120">柠檬语茶</option>
+                    <option value="121">鹿角巷</option>
+                    <option value="122">DAZZLE</option>
+                    <option value="123">coco都可</option>
+                    <option value="124">本宫的茶</option>
+                    <option value="125">三只松鼠</option>
+                    <option value="126">我家牛排</option>
+                    <option value="127">鱼酷</option>
+                    <option value="128">大渔铁板烧</option>
+                    <option value="129">牛叁金</option>
+                    <option value="130">汉拿山</option>
+                    <option value="131">呷哺呷哺</option>
+                    <option value="132">汤姆家牛排</option>
+                    <option value="133">莲灿</option>
+                    <option value="134">松果西餐厅</option>
+                    <option value="135">熊猫大师</option>
+                    <option value="136">HAZZYS</option>
+                    <option value="137">EDHARDY</option>
+                    <option value="138">诗篇</option>
+                    <option value="139">Ep雅莹</option>
+                    <option value="140">TOMMY HILFIGER</option>
+                    <option value="141">Read Me</option>
+                    <option value="142">佳人苑</option>
+                    <option value="143">Vero Moda</option>
+                    <option value="144">AUM</option>
+                    <option value="145">BESIONIA</option>
+                    <option value="146">Bouthentique</option>
+                    <option value="147">Koradior</option>
+                    <option value="148">BLUE ERDOS</option>
+                    <option value="149">波司登</option>
+                    <option value="150">advocate life</option>
+                    <option value="151">V.GRASS</option>
+                    <option value="152">SUSSI</option>
+                    <option value="153">LAMPO</option>
+                    <option value="154">EIFINI</option>
+                    <option value="155">J.D.V</option>
+                    <option value="156">希色</option>
+                    <option value="157">Edition</option>
+                    <option value="158">EXCEPTION</option>
+                    <option value="159">OVV</option>
+                    <option value="160">Hush Puppies</option>
+                    <option value="161">LIME FLARE</option>
+                    <option value="162">EVISU</option>
+                    <option value="163">LACOSTE</option>
+                    <option value="164">爱慕</option>
+                    <option value="165">蔚来汽车</option>
+                    <option value="166">H'S</option>
+                    <option value="167">SELECTED</option>
+                    <option value="168">JACK JONES</option>
+                    <option value="169">CALVIN KLEIN UNDERWEAR</option>
+                    <option value="170">Calvin Klein Jeans</option>
+                    <option value="171">BOY</option>
+                    <option value="172">曼妮芬</option>
+                    <option value="173">superdry</option>
+                    <option value="174">FAIRWHALE</option>
+                    <option value="175">太平鸟男装</option>
+                    <option value="176">GXG</option>
+                    <option value="177">BASIC HOUSE</option>
+                    <option value="178">DX</option>
+                    <option value="179">J.LINDEBERG</option>
+                    <option value="180">UNIQLO</option>
+                    <option value="181">Onitsuka Tiger</option>
+                    <option value="182">Adidas originals</option>
+                    <option value="183">PALLADIUM</option>
+                    <option value="184">H&M</option>
+                    <option value="185">Bershka</option>
+                    <option value="186">OYSHO</option>
+                    <option value="187">ZARA</option>
+                    <option value="188">拉夏贝尔</option>
+                    <option value="189">NBA</option>
+                    <option value="190">Timberland</option>
+                    <option value="191">THE NORTH FACE</option>
+                    <option value="192">FILA</option>
+                    <option value="193">Under Armour</option>
+                    <option value="194">ASICS</option>
+                    <option value="195">New Balance</option>
+                    <option value="196">kappa</option>
+                    <option value="197">SKECHERS</option>
+                    <option value="198">Le Coq Sportif</option>
+                    <option value="199">ONLY</option>
+                    <option value="200">LI-NING</option>
+                    <option value="201">LACOSTE CLUB</option>
+                    <option value="202">CONVERSE</option>
+                    <option value="203">PUMA</option>
+                    <option value="204">NIKE</option>
+                    <option value="205">ADIDAS</option>
+                    <option value="206">FILA FUSION</option>
+                    <option value="207">ADIDAS NEO</option>
+                    <option value="208">hotwind热风</option>
+                    <option value="209">东阿阿胶</option>
+                    <option value="210">JNBY</option>
+                    <option value="211">LAMOURBEBE</option>
+                    <option value="212">丝芙兰</option>
+                    <option value="213">屈臣氏</option>
+                    <option value="214">巴黎欧莱雅沙龙</option>
+                    <option value="215">minipeace</option>
+                    <option value="216">Balabala</option>
+                    <option value="217">adidas KIDS</option>
+                    <option value="218">玩具反斗城</option>
+                    <option value="219">七田真</option>
+                    <option value="220">纽约国际儿童俱乐部</option>
+                    <option value="221">廖记棒棒鸡</option>
+                    <option value="222">dh_mart</option>
+
+                </select>
+                <div class="input-group">
+                    <input class="form-control" type="text" name="input4" id="input4" placeholder="请输入消费金额">
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-danger" id="del-btn" onclick="del_div4()">—</button>
+                    </span>
+                </div>
+            </div>
+        </form>
+        <div>
+            <button type="button" class="btn btn-default btn-block btn-warning" onclick="math()">计算</button>
+        </div>
+    </div>
+    <div class="main" id="txtHint" style="display:none;">
+
+    </div>
+    <div class="main2" id="info">
+
+
+        1、此计算器用于当前商场活动计算，请您正确输入店铺名称、消费金额、即可计算出返券金额；
+        </p>
+        <p>
+            2、活动卡/券消费金额不再重复参与活动、不积分，在计算器录入消费金额时请减去活动卡/券消费部分；
+        </p>
+        <p>
+            3、活动计算器为模拟计算，实际返利金额以商场公示活动规则为准；如您计算金额与实际返利金额不符，请移步至L1顾客服务中心、L2会员中心、L3问询处咨询工作人员；
+        </p>
+        <p>
+            4、5元积1分，积分卡/银卡正常1倍积分,金卡正常1.2倍积分,白金卡/黑金卡1.5倍积分。
+        </p>
+    </div>
+
+    <!-- 模态框（Modal） -->
+    <div class="modal fade" id="myModal0" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">店铺活动</h4>
+                </div>
+                <div id="saleinfo0" class="modal-body"></div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+    </div>
+    <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">店铺活动</h4>
+                </div>
+                <div id="saleinfo1" class="modal-body"></div>
+
+
+
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+    </div>
+    <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">店铺活动</h4>
+                </div>
+                <div id="saleinfo2" class="modal-body"></div>
+
+
+
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+    </div>
+    <div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">店铺活动</h4>
+                </div>
+                <div id="saleinfo3" class="modal-body"></div>
+
+
+
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+    </div>
+    <div class="modal fade" id="myModal4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">店铺活动</h4>
+                </div>
+                <div id="saleinfo4" class="modal-body"></div>
+
+
+
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+    </div>
+    <div class="modal fade" id="myModal5" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">优惠明细</h4>
+                </div>
+                <div id="saleinfo5" class="modal-body">
+                    
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+    </div>
+</body>
+
+
+
+</html>
